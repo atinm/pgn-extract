@@ -9,7 +9,7 @@ Introduction
 
 A full description of pgn-extract's functionality is available and included with the sources.
 
-Here you can find the C source code and win32 binary for the current version. pgn-extract compiles and runs under Windows, Linux and Mac OSX. This program is made available under the terms of the GNU General Public License (Version 1).
+pgn-extract compiles and runs under Windows, Linux and Mac OSX. This program is made available under the terms of the GNU General Public License (Version 1).
 
 Overview
 The program is designed to make it easy to extract selected games from a PGN format data file based on a wide variety of criteria. The criteria include:
