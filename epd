@@ -1,0 +1,114 @@
+./apply.c:        if(*(next_move->move) != '\0'){
+./apply.c:            if((next_move->Variants != NULL) && GlobalState.keep_variations){
+./apply.c:						 next_move->Variants,
+./apply.c:	    if(next_move->class == NULL_MOVE) {
+./apply.c:		   next_move = next_move->next;
+./apply.c:				    next_move->move);
+./apply.c:	       next_move = next_move->next;
+./apply.c:        if(*(next_move->move) != '\0'){
+./apply.c:               next_move = next_move->next;
+./apply.c:                                next_move->move);
+./apply.c:        if(*(move->move) == '\0'){
+./apply.c:           move = move->next;
+./apply.c:           move = move->next;
+./apply.c:                        move->move);
+./argsfile.c: * move-reason argument line. Currently, this only applies to the
+./decode.c:    move->terminating_result = NULL;
+./decode.c:    move->epd = NULL;
+./decode.c:    move->Nags = NULL;
+./decode.c:    move->Comment = NULL;
+./decode.c:    move->Variants = NULL;
+./decode.c:    move->next = NULL;
+./end.c:            if(*(next_move->move) != '\0'){
+./end.c:               if(next_move->captured_piece != EMPTY){
+./end.c:                   num_pieces[OPPOSITE_COLOUR(colour)][next_move->captured_piece]--;
+./end.c:               if(next_move->promoted_piece != EMPTY){
+./end.c:                   num_pieces[OPPOSITE_COLOUR(colour)][next_move->promoted_piece]++;
+./end.c:               next_move = next_move->next;
+./grammar.c:        while(last_move->next != NULL){
+./grammar.c:            last_move = last_move->next;
+./grammar.c:            last_move->terminating_result = result;
+./grammar.c:            while(last_move->next != NULL){
+./grammar.c:                last_move = last_move->next;
+./grammar.c:            last_move->terminating_result = result;
+./grammar.c:        if(move->Comment == NULL){
+./grammar.c:            move->Comment = Comment;
+./grammar.c:            CommentList *tail = move->Comment;
+./map.c:    move->next = NULL;
+./map.c:    move->from_rank = from_rank;
+./map.c:    move->from_col = from_col;
+./map.c:    move->to_rank = to_rank;
+./map.c:    move->to_col = to_col;
+./map.c:    move->next = moves;
+./map.c:    move->next = move_pool;
+./map.c:        make_move(UNKNOWN_MOVE, move->from_col,move->from_rank,
+./map.c:                  move->to_col,move->to_rank,piece,colour,&copy_board);
+./map.c:            move = move->next;
+./map.c:            move = move->next;
+./map.c:            legal_move->next = valid_move_list;
+./map.c:            move->from_col = 'e';
+./map.c:            move->from_rank = rank;
+./map.c:            move->to_col = to_col;
+./map.c:            move->to_rank = rank;
+./map.c:            move->from_col = 'e';
+./map.c:            move->from_rank = rank;
+./map.c:            move->to_col = to_col;
+./map.c:            move->to_rank = rank;
+./map.c:                if(move->from_col != from_col){
+./map.c:                if(move->from_rank != from_rank){
+./map.c:            move = move->next;
+./moves.c:    /* Go for a straight move-by-move match in the order in which
+./moves.c:                                            next_move->move);
+./moves.c:            next_move = next_move->next;
+./moves.c:                      moves_of_the_variation[variant_index].move,next_move->move))){
+./moves.c:                next_move = next_move->next;
+./moves.c:                                        next_move->move);
+./moves.c:            next_move = next_move->next;
+./moves.c:            while(move->next != NULL) {
+./moves.c:                move = move->next;
+./moves.c:            if(move->check_status != NOCHECK) {
+./output.c:                                (move->terminating_result != NULL)){
+./output.c:                print_str(outputfile,move->terminating_result);
+./output.c:        if(move->move[0] != '\0'){
+./output.c:        move = move->next;
+./output.c:            while(move->next != NULL) {
+./output.c:                move = move->next;
+./output.c:            if(move->terminating_result != NULL) {
+./output.c:        if(move->move[0] != '\0'){
+./output.c:                fprintf(outputfile,"%*s",-MOVE_WIDTH,move->move);
+./output.c:                fprintf(outputfile,"%*s",-MOVE_WIDTH,move->move);
+./output.c:        if((move->Comment != NULL) && GlobalState.keep_comments){
+./output.c:            const char *result = move->terminating_result;
+./output.c:            output_cm_comment(move->Comment,outputfile,COMMENT_INDENT);
+./output.c:            if((result != NULL) && (move->check_status != CHECKMATE)){
+./output.c:            if((move->terminating_result != NULL) &&
+./output.c:                        (move->check_status != CHECKMATE)){
+./output.c:                const char *result = move->terminating_result;
+./output.c:        move = move->next;
+./output.c:        if(move->epd != NULL){
+./output.c:            fprintf(outputfile,"%s",move->epd);
+./output.c:        move = move->next;
+./output.c~:                                (move->terminating_result != NULL)){
+./output.c~:                print_str(outputfile,move->terminating_result);
+./output.c~:        if(move->move[0] != '\0'){
+./output.c~:        move = move->next;
+./output.c~:            while(move->next != NULL) {
+./output.c~:                move = move->next;
+./output.c~:            if(move->terminating_result != NULL) {
+./output.c~:        if(move->move[0] != '\0'){
+./output.c~:                fprintf(outputfile,"%*s",-MOVE_WIDTH,move->move);
+./output.c~:                fprintf(outputfile,"%*s",-MOVE_WIDTH,move->move);
+./output.c~:        if((move->Comment != NULL) && GlobalState.keep_comments){
+./output.c~:            const char *result = move->terminating_result;
+./output.c~:            output_cm_comment(move->Comment,outputfile,COMMENT_INDENT);
+./output.c~:            if((result != NULL) && (move->check_status != CHECKMATE)){
+./output.c~:            if((move->terminating_result != NULL) &&
+./output.c~:                        (move->check_status != CHECKMATE)){
+./output.c~:                const char *result = move->terminating_result;
+./output.c~:        move = move->next;
+./output.c~:        if(move->epd != NULL){
+./output.c~:            fprintf(outputfile,"%s",move->epd);
+./output.c~:        move = move->next;
+./test/infiles/test-long-line.pgn:{ only-a-fool-would-play-this-move-and-only-someone-wanting-to-test-how-the-program-copes-with-very-long-lines-would-type-a-comment-like-this }
+./test/outfiles/test-long-line-log.txt:only-a-fool-would-play-this-move-and-only-someone-wanting-to-test-how-the-program-copes-with-very-long-lines-would-type-a-comment-like-this
+./test/outfiles/test-long-line-out.pgn:only-a-fool-would-play-this-move-and-only-someone-wanting-to-test-how-the-program-copes-with-very-long-lines-would-type-a-comment-like-this

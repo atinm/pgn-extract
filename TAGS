@@ -1,0 +1,852 @@
+
+apply.c,1213
+#define DEFAULT_POSITIONAL_DEPTH 47,1437
+static char SAN_piece_characters[SAN_piece_characters66,2504
+static const char *output_piece_characters[output_piece_characters76,2801
+void set_output_piece_characters(82,2982
+copy_string(149,5464
+allocate_new_board(160,5682
+free_board(167,5812
+is_FEN_piece(173,5887
+SAN_piece_letter(201,6493
+coloured_piece_to_SAN_letter(213,6710
+new_fen_board(233,7358
+new_game_board(524,15769
+print_square(597,18441
+print_board(633,19415
+check_board(650,19791
+half_moves_played(691,20916
+apply_move(706,21362
+play_moves(788,24381
+play_eco_moves(1006,32168
+apply_variations(1073,34644
+apply_move_list(1112,36240
+apply_eco_move_list(1158,37646
+piece_str(1175,38248
+rewrite_SAN_string(1189,38562
+rewrite_move(1403,47810
+rewrite_moves(1470,50270
+rewrite_variations(1574,53890
+rewrite_game(1595,54619
+#define MAX_CODE 1616,55137
+static HashLog *codes_of_interest[codes_of_interest1617,55157
+store_hash_value(1623,55354
+position_matches(1674,57031
+build_basic_EPD_string(1697,57691
+build_FEN_string(1818,61770
+append_FEN_comment(1841,62401
+append_evaluation(1858,62995
+create_match_comment(1889,64054
+evaluate(1902,64502
+shannonEvaluation(1911,64676
+
+argsfile.c,411
+#define CURRENT_VERSION 44,1312
+#define URL 45,1345
+static const char argument_prefix[argument_prefix61,1820
+static const int argument_prefix_len 62,1864
+stringcompare(67,2062
+prefixMatch(79,2350
+static const char *skip_leading_spaces(skip_leading_spaces96,2751
+usage_and_exit(106,2933
+read_args_file(227,9155
+classify_arg(387,15719
+process_argument(464,18640
+process_long_form_argument(895,34510
+
+argsfile.h,1414
+    SEVEN_TAG_ROSTER_ARGUMENT 25,1001
+    GAMES_PER_FILE_ARGUMENT 26,1038
+    ALTERNATIVE_HELP_ARGUMENT 27,1073
+    LONG_FORM_ARGUMENT 28,1110
+    APPEND_TO_OUTPUT_FILE_ARGUMENT 29,1140
+    BOUNDS_ARGUMENT 30,1182
+    CHECK_FILE_ARGUMENT 31,1209
+    DUPLICATES_FILE_ARGUMENT 32,1240
+    USE_ECO_FILE_ARGUMENT 33,1276
+    FILE_OF_FILES_ARGUMENT 34,1309
+    HELP_ARGUMENT 35,1343
+    WRITE_TO_LOG_FILE_ARGUMENT 36,1368
+    NON_MATCHING_GAMES_ARGUMENT 37,1406
+    WRITE_TO_OUTPUT_FILE_ARGUMENT 38,1445
+    CHECK_ONLY_ARGUMENT 39,1486
+    KEEP_SILENT_ARGUMENT 40,1517
+    TAGS_ARGUMENT 41,1549
+    MOVES_ARGUMENT 42,1574
+    LINE_WIDTH_ARGUMENT 43,1600
+    POSITIONS_ARGUMENT 44,1631
+    ENDINGS_ARGUMENT 45,1661
+    FILE_OF_ARGUMENTS_ARGUMENT 46,1689
+    DONT_KEEP_COMMENTS_ARGUMENT 47,1727
+    DONT_KEEP_DUPLICATES_ARGUMENT 48,1766
+    ECO_OUTPUT_LEVEL_ARGUMENT 49,1807
+    OUTPUT_FEN_STRING_ARGUMENT 50,1844
+    APPEND_TO_LOG_FILE_ARGUMENT 51,1882
+    MATCH_CHECKMATE_ARGUMENT 52,1921
+    DONT_KEEP_NAGS_ARGUMENT 53,1957
+    DONT_MATCH_PERMUTATIONS_ARGUMENT 54,1992
+    TAG_ROSTER_ARGUMENT 55,2036
+    USE_SOUNDEX_ARGUMENT 56,2067
+    TAG_EXTRACTION_ARGUMENT 57,2099
+    SUPPRESS_ORIGINALS_ARGUMENT 58,2134
+    DONT_KEEP_VARIATIONS_ARGUMENT 59,2173
+    OUTPUT_FORMAT_ARGUMENT 60,2214
+    USE_VIRTUAL_HASH_TABLE_ARGUMENT 61,2248
+    NO_ARGUMENT_MATCH 62,2291
+} ArgType;63,2352
+
+bool.h,112
+typedef enum { FALSE,26,1009
+typedef enum { FALSE, TRUE 26,1009
+typedef enum { FALSE, TRUE } Boolean;26,1009
+
+decode.c,230
+is_col(47,1790
+is_rank(54,1928
+is_piece(65,2238
+is_capture(112,3502
+is_castling_character(118,3606
+is_check(124,3700
+new_move_structure(133,3887
+decode_move(153,4506
+decode_algebraic(429,13535
+move_seems_valid(467,14870
+
+defs.h,2287
+typedef enum { BLACK,29,1163
+typedef enum { BLACK, WHITE 29,1163
+typedef enum { BLACK, WHITE } Colour;29,1163
+    OFF,31,1216
+    OFF, EMPTY,31,1216
+    PAWN,35,1374
+    PAWN, KNIGHT,35,1374
+    PAWN, KNIGHT, BISHOP,35,1374
+    PAWN, KNIGHT, BISHOP, ROOK,35,1374
+    PAWN, KNIGHT, BISHOP, ROOK, QUEEN,35,1374
+    PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING,35,1374
+    NUM_PIECE_VALUES37,1443
+} Piece;38,1464
+typedef enum { PAWN_MOVE,40,1541
+typedef enum { PAWN_MOVE, PAWN_MOVE_WITH_PROMOTION,40,1541
+typedef enum { PAWN_MOVE, PAWN_MOVE_WITH_PROMOTION, ENPASSANT_PAWN_MOVE,40,1541
+               PIECE_MOVE,41,1614
+               PIECE_MOVE, KINGSIDE_CASTLE,41,1614
+               PIECE_MOVE, KINGSIDE_CASTLE, QUEENSIDE_CASTLE,41,1614
+	       NULL_MOVE,42,1676
+               UNKNOWN_MOVE43,1695
+             } MoveClass;44,1723
+typedef char Rank;47,1793
+typedef char Col;48,1812
+#define RANKBASE 51,1887
+#define COLBASE 52,1908
+#define FIRSTRANK 53,1928
+#define LASTRANK 54,1957
+#define FIRSTCOL 55,1997
+#define LASTCOL 56,2024
+#define RankConvert(59,2127
+#define ColConvert(62,2335
+#define ToRank(66,2524
+#define ToCol(67,2563
+#define COLOUR_OFFSET(68,2600
+#define BOARDSIZE 70,2661
+#define HEDGE 74,2809
+typedef unsigned long HashCode;77,2868
+    Piece board[board80,2918
+    Colour to_move;82,3014
+    unsigned move_number;84,3069
+    Boolean WKingCastle,86,3151
+    Boolean WKingCastle, WQueenCastle;86,3151
+    Boolean BKingCastle,87,3190
+    Boolean BKingCastle, BQueenCastle;87,3190
+    Col WKingCol;91,3322
+    Col WKingCol; Rank WKingRank;91,3322
+    Col BKingCol;92,3356
+    Col BKingCol; Rank BKingRank;92,3356
+    Boolean EnPassant;96,3517
+    Rank ep_rank;97,3540
+    Col ep_col;98,3558
+    HashCode hash_value;99,3574
+    unsigned halfmove_clock;101,3666
+} Board;102,3695
+typedef struct move_pair 107,3802
+    Col from_col;108,3829
+    Rank from_rank;109,3847
+    Col to_col;110,3867
+    Rank to_rank;111,3883
+    struct move_pair *next;next112,3901
+} MovePair;113,3929
+#define PIECE_SHIFT 116,3971
+#define MAKE_COLOURED_PIECE(117,3993
+#define W(118,4073
+#define B(119,4123
+#define OPPOSITE_COLOUR(121,4225
+#define EXTRACT_COLOUR(122,4269
+#define EXTRACT_PIECE(123,4334
+#define NULL_MOVE_STRING 128,4502
+
+eco.c,694
+#define ECO_HALF_MOVE_LIMIT 42,1372
+static unsigned maximum_half_moves 48,1559
+#define ECO_TABLE_SIZE 53,1729
+static EcoLog **EcoTable;EcoTable54,1757
+dumpEcoTable(58,1825
+eco_match_level(84,2761
+static int ECO_REQUIRED_HASH_VALUE 105,3344
+static int ECO_HALF_MOVE_VALUE 106,3384
+static int ECO_CUMULATIVE_HASH_VALUE 107,3420
+static int eco_match_quality(112,3528
+void initEcoTable(131,4144
+save_eco_details(147,4490
+eco_matches(265,9025
+open_eco_output_file(301,10318
+    enum { MAXNAME 306,10510
+    enum { MAXNAME = MAX_ECO_LEVEL+MAX_ECO_LEVEL306,10510
+    enum { MAXNAME = MAX_ECO_LEVEL+sizeof(sizeof306,10510
+    enum { MAXNAME = MAX_ECO_LEVEL+sizeof(suffix)306,10510
+
+eco.h,409
+typedef struct EcoLog 24,983
+    HashCode required_hash_value;25,1007
+    HashCode cumulative_hash_value;29,1160
+    unsigned half_moves;33,1315
+    const char *ECO_tag;ECO_tag34,1340
+    const char *Opening_tag;Opening_tag35,1365
+    const char *Variation_tag;Variation_tag36,1394
+    const char *Sub_Variation_tag;Sub_Variation_tag37,1425
+    struct EcoLog *next;next38,1460
+} EcoLog;39,1485
+
+end.c,1209
+    EXACTLY,48,1493
+    EXACTLY, NUM_OR_MORE,48,1493
+    EXACTLY, NUM_OR_MORE, NUM_OR_LESS,48,1493
+    SAME_AS_OPPONENT,49,1532
+    SAME_AS_OPPONENT, NOT_SAME_AS_OPPONENT,49,1532
+    LESS_THAN_OPPONENT,50,1576
+    LESS_THAN_OPPONENT, MORE_THAN_OPPONENT,50,1576
+    LESS_EQ_THAN_OPPONENT,51,1620
+    LESS_EQ_THAN_OPPONENT, MORE_EQ_THAN_OPPONENT51,1620
+} Occurs;52,1669
+typedef struct ending_details{ending_details58,1768
+    int num_pieces[num_pieces63,1971
+    Occurs occurs[occurs64,2012
+    int num_minor_pieces[num_minor_pieces66,2095
+    Occurs minor_occurs[minor_occurs67,2124
+    unsigned move_depth;71,2261
+    unsigned match_depth[match_depth76,2493
+    struct ending_details *next;next77,2522
+} Ending_details;78,2555
+static Ending_details *endings_to_match endings_to_match81,2616
+#define MINOR_PIECE 87,2868
+is_English_piece(90,2906
+new_ending_details(120,3570
+extract_combination(149,4488
+extract_piece_information(249,7237
+decompose_line(321,9806
+reset_match_depths(380,11274
+piece_match(390,11552
+piece_set_match(439,13165
+ending_match(499,15490
+look_for_ending(530,16527
+check_for_ending(603,19149
+process_ending_line(616,19527
+build_endings(635,19935
+
+fenmatcher.c,510
+#define EMPTY_SQUARE 33,1150
+#define NON_EMPTY_SQUARE 35,1206
+#define ANY_SQUARE_STATE 36,1235
+#define ZERO_OR_MORE_OF_ANYTHING 37,1264
+#define ANY_WHITE_PIECE 38,1301
+#define ANY_BLACK_PIECE 39,1329
+#define CCL_START 42,1386
+#define CCL_END 43,1408
+#define NCCL 44,1428
+static StringList *fen_patterns fen_patterns61,2078
+add_fen_pattern(64,2124
+matchBoard(144,3872
+matchhere(181,4616
+matchstar(246,6079
+matchone(268,6549
+matchccl(315,7400
+matchnccl(337,7828
+convert_board_to_text(354,8160
+
+grammar.c,1102
+static TokenType current_symbol 43,1307
+static unsigned RAV_level 49,1510
+    char **Tags;Tags57,1709
+    unsigned header_tags_length;58,1726
+    CommentList *prefix_comment;prefix_comment59,1759
+} GameHeader;60,1792
+init_game_header(91,2882
+increase_game_header_tags_length(103,3220
+must_open_file(123,3955
+report_details(139,4324
+check_result(167,5154
+select_output_file(198,6269
+static Boolean finished_processing(236,7636
+ParseOptGameList(243,7817
+ParseGame(276,8743
+ParseOptTagList(355,11389
+ParseTag(385,12348
+ParseMoveList(426,13561
+ParseMoveAndVariants(443,13900
+ParseMove(461,14289
+ParseMoveUnit(481,14758
+ParseOptCommentList(507,15563
+ParseOptMoveNumber(524,15919
+ParseOptNAGList(535,16149
+ParseOptVariantList(551,16511
+ParseVariant(568,16858
+ParseResult(632,18855
+setup_for_new_game(651,19318
+free_tags(659,19474
+free_string_list(672,19767
+free_comment_list(686,20039
+free_variation(700,20383
+free_move_list(720,20893
+save_string_list_item(749,21664
+append_comments_to_move(776,22259
+DealWithGame(798,22811
+DealWithEcoLine(941,28553
+yyparse(987,30094
+
+hashing.c,724
+static char VIRTUAL_FILE[VIRTUAL_FILE58,1942
+#define LOG_TABLE_SIZE 63,2093
+  long head,71,2364
+  long head, tail;71,2364
+} LogHeaderEntry;72,2383
+static LogHeaderEntry *VirtualLogTable VirtualLogTable75,2434
+static HashLog **LogTable LogTable81,2636
+typedef struct VirtualHashLog 87,2849
+    HashCode final_hash_value,91,2981
+    HashCode final_hash_value, cumulative_hash_value;91,2981
+    int file_number;93,3115
+    long next;97,3234
+} VirtualHashLog;98,3249
+static FILE *hash_file hash_file100,3268
+init_duplicate_hash_table(108,3510
+clear_duplicate_hash_table(133,4260
+retrieve_virtual_entry(146,4544
+write_virtual_entry(168,5156
+previous_virtual_occurance(193,6002
+previous_occurance(277,9039
+
+hashing.h,207
+typedef struct HashLog 27,1100
+    HashCode final_hash_value;31,1230
+    HashCode cumulative_hash_value;32,1261
+    unsigned file_number;34,1377
+    struct HashLog *next;next35,1403
+} HashLog;36,1429
+
+lex.c,1525
+#define R_OK 30,1076
+static unsigned long line_number 64,1990
+static unsigned RAV_level 66,2090
+static unsigned char last_move[last_move68,2162
+static unsigned games_in_file 70,2265
+static FILE *yyin yyin75,2381
+#define MAX_YYTEXT 78,2455
+static unsigned char yytext[yytext79,2478
+YYSTYPE yylval;80,2521
+#define MAX_CHAR 82,2538
+#define ALPHA_DIST 83,2559
+static TokenType ChTab[ChTab85,2627
+static short MoveChars[MoveChars87,2738
+static const char **TagList;TagList92,2917
+static unsigned tag_list_length 93,2946
+init_list_of_known_tags(99,3160
+make_new_tag(158,5332
+tag_header_string(172,5770
+init_lex_tables(190,6241
+gather_string(300,9421
+is_character_class(355,10831
+gather_comment(364,11091
+gather_possible_numeric(412,12594
+identify_tag(502,15334
+gather_tag(518,15736
+extract_yytext(582,17610
+get_next_symbol(606,18375
+next_token(873,29088
+skip_token(888,29499
+skip_to_next_game(907,29941
+save_q_castle(930,30658
+save_k_castle(937,30796
+save_move(944,30938
+restart_lex_for_new_game(953,31163
+static int current_file_num 963,31417
+static FILE_LIST list_of_files 968,31635
+current_file_number(976,31837
+add_filename_list_from_file(987,32106
+add_filename_to_source_list(1017,33194
+open_input(1091,36276
+open_eco_file(1106,36685
+open_input_file(1113,36838
+open_first_file(1129,37227
+input_file_name(1158,38015
+print_error_context(1171,38249
+save_string(1182,38510
+next_input_line(1193,38744
+yywrap(1211,39072
+reset_line_number(1257,40499
+terminate_input(1263,40561
+
+lex.h,711
+    char *line;line29,1191
+    unsigned char *linep;linep31,1271
+    TokenType token;33,1328
+} LinePair;34,1349
+    const char **files;files39,1488
+    SourceFileType *file_type;file_type40,1512
+    unsigned num_files;42,1600
+    unsigned max_files;44,1676
+} FILE_LIST;45,1700
+#define RUSSIAN_KNIGHT_OR_KING 48,1720
+#define RUSSIAN_KING_SECOND_LETTER 49,1760
+#define RUSSIAN_QUEEN 50,1804
+#define RUSSIAN_ROOK 51,1835
+#define RUSSIAN_BISHOP 52,1865
+#define RUSSIAN_PAWN 53,1897
+#define RUSSIAN_KNIGHT_OR_KING 55,1933
+#define RUSSIAN_KING_SECOND_LETTER 56,1973
+#define RUSSIAN_QUEEN 57,2017
+#define RUSSIAN_ROOK 58,2048
+#define RUSSIAN_BISHOP 59,2078
+#define RUSSIAN_PIECE_CHECK(64,2217
+
+lines.c,183
+#define INIT_LINE_LENGTH 32,1099
+#define LINE_INCREMENT 33,1127
+#define COMMENT_CHAR 39,1309
+read_line(42,1342
+non_blank_line(82,2448
+blank_line(104,2904
+comment_line(112,3048
+
+lists.c,726
+    char *tag_string;tag_string39,1304
+    TagOperator operator;40,1326
+} TagSelection;41,1352
+    unsigned num_allocated_elements;55,1843
+    unsigned num_used_elements;57,1952
+    TagSelection *tag_strings;tag_strings62,2169
+} StringArray;63,2200
+static StringArray *TagLists;TagLists73,2558
+static int tag_list_length 74,2588
+void init_tag_lists(79,2739
+extend_tag_list_length(95,3161
+add_to_taglist(124,4207
+#define MAXSOUNDEX 196,7119
+soundex(204,7394
+soundex_tag(257,8995
+add_tag_to_list(278,9495
+extract_tag_argument(322,10957
+#define MINDATE 369,12376
+#define MAXDATE 370,12396
+CheckDate(373,12433
+CheckElo(453,15137
+CheckList(513,17338
+CheckTagDetailsNotECO(545,18464
+CheckECOTag(642,22211
+
+lists.h,370
+#define INIT_LIST_SPACE 26,1051
+#define MORE_LIST_SPACE 27,1078
+    NONE,37,1511
+    LESS_THAN,38,1521
+    LESS_THAN, GREATER_THAN,38,1521
+    LESS_THAN, GREATER_THAN, EQUAL_TO,38,1521
+    LESS_THAN, GREATER_THAN, EQUAL_TO, NOT_EQUAL_TO,38,1521
+    LESS_THAN_OR_EQUAL_TO,39,1574
+    LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO39,1574
+} TagOperator;40,1626
+
+main.c,149
+#define MAX_LINE_LENGTH 45,1418
+#define DEFAULT_ECO_FILE 51,1579
+StateInfo GlobalState 61,1993
+init_default_global_state(119,5071
+main(127,5228
+
+map.c,1533
+#define NUM_KNIGHT_MOVES 42,1329
+static short Knight_moves[Knight_moves43,1356
+#define NUM_BISHOP_MOVES 55,1598
+static short Bishop_moves[Bishop_moves56,1625
+#define NUM_ROOK_MOVES 64,1776
+static short Rook_moves[Rook_moves65,1801
+#define NUM_KING_MOVES 73,1948
+static short King_moves[King_moves74,1973
+#define NUM_QUEEN_MOVES 86,2174
+static short Queen_moves[Queen_moves87,2200
+#define NUMBER_OF_PIECES 103,2568
+static HashCode HashTab[HashTab104,2595
+static MovePair *move_pool move_pool116,3169
+malloc_move(119,3223
+append_move_pair(135,3569
+free_move_pair(148,3928
+free_move_pair_list(156,4078
+#define SHIFT_LENGTH 168,4431
+init_hashtab(170,4459
+HashLookup(202,5388
+piece_is_colour(209,5597
+make_move(220,5982
+find_pawn_moves(407,12766
+find_knight_moves(532,18238
+find_bishop_moves(555,18984
+find_rook_moves(585,19925
+find_queen_moves(615,20852
+find_king_moves(645,21786
+king_is_in_check(670,22596
+exclude_checks(750,25457
+exclude_castling_across_checks(790,26860
+exclude_moves(833,28270
+pawn_move(884,29865
+promote(938,31815
+knight_move(990,33723
+bishop_move(1034,35323
+rook_move(1078,36915
+queen_move(1129,38772
+can_castle_kingside(1171,40261
+can_castle_queenside(1218,41568
+kingside_castle(1266,42931
+queenside_castle(1287,43495
+king_move(1311,44206
+determine_move_details(1369,46685
+GenerateSingleMoves(1591,56009
+GenerateMultipleMoves(1636,57498
+GeneratePawnMoves(1684,59384
+king_is_in_checkmate(1753,62068
+approx_how_many_moves(1813,64156
+find_all_moves(1870,66145
+
+moves.c,1226
+#define ANY_MOVE 58,1956
+#define DISALLOWED_MOVE 66,2223
+    char *move;move76,2561
+    Boolean matched;81,2743
+} variant_move;82,2764
+typedef struct variation_list 87,2883
+    variant_move *moves;moves89,2944
+    unsigned num_white_any_moves;94,3172
+    unsigned num_black_any_moves;95,3206
+    unsigned num_white_disallowed_moves;101,3492
+    unsigned num_black_disallowed_moves;102,3533
+    unsigned length;104,3622
+    struct variation_list *next;next105,3643
+} variation_list;106,3676
+static variation_list *games_to_keep games_to_keep109,3750
+strip_move_number(123,4244
+#define INIT_MOVE_NUMBER 142,4518
+#define MOVE_INCREMENT 143,4546
+compose_variation(149,4707
+add_textual_variations_from_file(237,8045
+add_textual_variation_from_line(248,8297
+compose_positional_variation(269,8972
+add_positional_variations_from_file(330,10775
+add_positional_variation_from_line(339,10949
+add_fen_positional_match(360,11624
+add_fen_pattern_match(369,11852
+move_char(379,12103
+textual_variation_match(391,12567
+straight_match(435,14151
+permutation_match(514,17392
+check_for_only_checkmate(679,23833
+check_for_only_stalemate(704,24519
+check_textual_variations(742,25686
+check_move_bounds(770,26509
+
+mymalloc.c,42
+MallocOrDie(27,990
+ReallocOrDie(39,1174
+
+output.c,1404
+#define MOVE_NUMBER_WIDTH 42,1341
+#define MOVE_WIDTH 43,1369
+#define CM_COMMENT_CHAR 44,1391
+#define COMMENT_INDENT 46,1478
+#define ARRAY_SIZE(49,1588
+static size_t line_length 52,1696
+static char *output_line output_line54,1790
+static int DefaultTagOrder[DefaultTagOrder87,3519
+static int *TagOrder TagOrder116,4524
+static int tag_order_space 117,4553
+set_output_line_length(120,4591
+which_output_format(133,4931
+        const char *arg;arg136,4992
+        OutputFormat format;137,5017
+output_file_suffix(187,6672
+select_tag_string(212,7237
+is_STR(225,7530
+output_tag(245,7950
+output_STR(272,8707
+show_tags(287,9118
+check_line_length(335,10785
+single_char(346,11036
+print_separator(355,11231
+terminate_line(369,11600
+print_str(386,12016
+print_comment_list(405,12560
+print_move_list(440,13674
+print_move(534,17004
+promoted_piece_letter(787,27791
+output_cm_comment(805,28131
+output_cm_result(850,29679
+output_cm_game(870,30179
+output_game(964,33766
+add_to_output_tag_order(1032,35753
+static const char *format_epd_game_comment(format_epd_game_comment1065,36868
+print_algebraic_game(1124,38574
+print_epd_move_list(1180,40715
+print_epd_game(1207,41575
+build_FEN_comment(1224,42124
+static unsigned count_single_move_ply(1242,42598
+static unsigned count_move_list_ply(1259,43038
+static void add_total_plycount(1273,43396
+static void add_hashcode_tag(1289,43895
+
+output.h,27
+#define FEN_SPACE 32,1296
+
+taglines.c,142
+static FILE *yyin yyin38,1177
+read_tag_file(48,1582
+read_tag_roster_file(79,2388
+process_tag_line(101,2984
+process_roster_line(220,7391
+
+taglist.h,1179
+    ANNOTATOR_TAG,33,1355
+    BLACK_TAG,34,1374
+    BLACK_ELO_TAG,35,1389
+    BLACK_NA_TAG,36,1408
+    BLACK_TITLE_TAG,37,1426
+    BLACK_TYPE_TAG,38,1447
+    BLACK_USCF_TAG,39,1467
+    BOARD_TAG,40,1487
+    DATE_TAG,41,1502
+    ECO_TAG,42,1516
+    PSEUDO_ELO_TAG,46,1693
+    EVENT_TAG,47,1713
+    EVENT_DATE_TAG,48,1728
+    EVENT_SPONSOR_TAG,49,1748
+    FEN_TAG,50,1771
+    PSEUDO_FEN_PATTERN_TAG,54,1956
+    HASHCODE_TAG,55,1984
+    LONG_ECO_TAG,56,2002
+    MODE_TAG,57,2020
+    NIC_TAG,58,2034
+    OPENING_TAG,59,2047
+    PSEUDO_PLAYER_TAG,63,2231
+    PLY_COUNT_TAG,64,2254
+    TOTAL_PLY_COUNT_TAG,68,2408
+    RESULT_TAG,69,2433
+    ROUND_TAG,70,2449
+    SECTION_TAG,71,2464
+    SETUP_TAG,72,2481
+    SITE_TAG,73,2496
+    STAGE_TAG,74,2510
+    SUB_VARIATION_TAG,75,2525
+    TERMINATION_TAG,76,2548
+    TIME_TAG,77,2569
+    TIME_CONTROL_TAG,78,2583
+    UTC_DATE_TAG,79,2605
+    UTC_TIME_TAG,80,2623
+    VARIATION_TAG,81,2641
+    WHITE_TAG,82,2660
+    WHITE_ELO_TAG,83,2675
+    WHITE_NA_TAG,84,2694
+    WHITE_TITLE_TAG,85,2712
+    WHITE_TYPE_TAG,86,2733
+    WHITE_USCF_TAG,87,2753
+    ORIGINAL_NUMBER_OF_TAGS91,2879
+} TagName;92,2907
+
+tokens.h,1409
+    EOF_TOKEN,30,1207
+    EOF_TOKEN, TAG,30,1207
+    EOF_TOKEN, TAG, STRING,30,1207
+    EOF_TOKEN, TAG, STRING, COMMENT,30,1207
+    EOF_TOKEN, TAG, STRING, COMMENT, NAG,30,1207
+    CHECK_SYMBOL,31,1249
+    CHECK_SYMBOL, MOVE_NUMBER,31,1249
+    CHECK_SYMBOL, MOVE_NUMBER, RAV_START,31,1249
+    CHECK_SYMBOL, MOVE_NUMBER, RAV_START, RAV_END,31,1249
+    MOVE,32,1300
+    MOVE, TERMINATING_RESULT,32,1300
+    WHITESPACE,37,1472
+    WHITESPACE, TAG_START,37,1472
+    WHITESPACE, TAG_START, TAG_END,37,1472
+    WHITESPACE, TAG_START, TAG_END, DOUBLE_QUOTE,37,1472
+    COMMENT_START,38,1522
+    COMMENT_START, COMMENT_END,38,1522
+    COMMENT_START, COMMENT_END, ANNOTATE,38,1522
+    DOT,39,1564
+    DOT, PERCENT,39,1564
+    DOT, PERCENT, ESCAPE,39,1564
+    DOT, PERCENT, ESCAPE, ALPHA,39,1564
+    DOT, PERCENT, ESCAPE, ALPHA, DIGIT,39,1564
+    STAR,40,1604
+    STAR, DASH,40,1604
+    STAR, DASH, EOS,40,1604
+    STAR, DASH, EOS, OPERATOR,40,1604
+    STAR, DASH, EOS, OPERATOR, NO_TOKEN,40,1604
+    STAR, DASH, EOS, OPERATOR, NO_TOKEN, ERROR_TOKEN40,1604
+} TokenType;41,1657
+    char *token_string;token_string45,1755
+    Move *move_details;move_details47,1807
+    unsigned move_number;48,1831
+    StringList *nags;nags49,1857
+    Variation *variation_details;variation_details50,1879
+    CommentList *comment;comment51,1913
+    unsigned tag_index;53,2007
+} YYSTYPE;54,2031
+
+typedef.h,5145
+typedef enum { SOURCE,39,1698
+typedef enum { SOURCE, SAN,39,1698
+typedef enum { SOURCE, SAN, EPD,39,1698
+typedef enum { SOURCE, SAN, EPD, CM,39,1698
+typedef enum { SOURCE, SAN, EPD, CM, LALG,39,1698
+typedef enum { SOURCE, SAN, EPD, CM, LALG, HALG,39,1698
+typedef enum { SOURCE, SAN, EPD, CM, LALG, HALG, ELALG,39,1698
+typedef enum { SOURCE, SAN, EPD, CM, LALG, HALG, ELALG, XLALG,39,1698
+typedef enum { SOURCE, SAN, EPD, CM, LALG, HALG, ELALG, XLALG, UCI 39,1698
+typedef enum { SOURCE, SAN, EPD, CM, LALG, HALG, ELALG, XLALG, UCI } OutputFormat;39,1698
+typedef enum { NOCHECK,46,1974
+typedef enum { NOCHECK, CHECK,46,1974
+typedef enum { NOCHECK, CHECK, CHECKMATE 46,1974
+typedef enum { NOCHECK, CHECK, CHECKMATE } CheckStatus;46,1974
+typedef struct string_list 51,2133
+    const char *str;str52,2162
+    struct string_list *next;next53,2183
+} StringList;54,2213
+typedef struct comment_list{comment_list59,2368
+    StringList *Comment;Comment60,2397
+    struct comment_list *next;next61,2422
+} CommentList;62,2453
+typedef struct variation{variation64,2469
+    CommentList *prefix_comment;prefix_comment65,2495
+    struct move *moves;moves66,2528
+    CommentList *suffix_comment;suffix_comment67,2552
+    struct variation *next;next68,2585
+} Variation;69,2613
+#define MAX_MOVE_LEN 74,2702
+typedef struct move{move79,2826
+    unsigned char move[move84,2984
+    Col from_col;87,3098
+    Rank from_rank;88,3116
+    Col to_col;89,3136
+    Rank to_rank;90,3152
+    Piece piece_to_move;91,3170
+    Piece captured_piece;93,3253
+    Piece promoted_piece;95,3355
+    CheckStatus check_status;97,3422
+    char *epd;epd101,3554
+    StringList *Nags;Nags102,3569
+    CommentList *Comment;Comment103,3591
+    char *terminating_result;terminating_result105,3692
+    Variation *Variants;Variants106,3722
+    struct move *prev,prev113,4046
+    struct move *prev, *next;next113,4046
+} Move;114,4076
+    char **tags;tags118,4132
+    int tags_length;120,4198
+    CommentList *prefix_comment;prefix_comment124,4305
+    HashCode final_hash_value;126,4386
+    HashCode cumulative_hash_value;130,4522
+    HashCode fuzzy_duplicate_hash;132,4619
+    Move *moves;moves134,4691
+    Boolean moves_checked;136,4763
+    Boolean moves_ok;138,4834
+    int error_ply;142,4956
+} Game;143,4975
+typedef enum { NORMALFILE,151,5251
+typedef enum { NORMALFILE, CHECKFILE,151,5251
+typedef enum { NORMALFILE, CHECKFILE, ECOFILE 151,5251
+typedef enum { NORMALFILE, CHECKFILE, ECOFILE } SourceFileType;151,5251
+    DONT_DIVIDE 161,5608
+    DONT_DIVIDE = 0, MIN_ECO_LEVEL 161,5608
+    DONT_DIVIDE = 0, MIN_ECO_LEVEL = 1, MAX_ECO_LEVEL 161,5608
+} EcoDivision;162,5667
+    ALL_TAGS 170,5901
+    ALL_TAGS = 0, SEVEN_TAG_ROSTER 170,5901
+    ALL_TAGS = 0, SEVEN_TAG_ROSTER = 1, NO_TAGS 170,5901
+} TagOutputForm;171,5953
+    Boolean skipping_current_game;180,6216
+    Boolean check_only;182,6315
+    Boolean verbose;184,6399
+    Boolean keep_NAGs;186,6469
+    Boolean keep_comments;188,6545
+    Boolean keep_variations;190,6627
+    TagOutputForm tag_output_format;192,6695
+    Boolean match_permutations;194,6802
+    Boolean positional_variations;196,6898
+    Boolean use_soundex;198,6989
+    Boolean suppress_duplicates;200,7067
+    Boolean suppress_originals;202,7150
+    Boolean fuzzy_match_duplicates;204,7238
+    int fuzzy_match_depth;206,7321
+    Boolean check_tags;208,7397
+    Boolean add_ECO;210,7457
+    Boolean parsing_ECO_file;212,7535
+    EcoDivision ECO_level;214,7609
+    OutputFormat output_format;216,7680
+    unsigned max_line_length;218,7750
+    Boolean use_virtual_hash_table;220,7834
+    Boolean check_move_bounds;222,7931
+    Boolean match_only_checkmate;224,8021
+    Boolean match_only_stalemate;226,8114
+    Boolean keep_move_numbers;228,8204
+    Boolean keep_results;230,8286
+    Boolean keep_checks;232,8379
+    Boolean output_evaluation;234,8469
+    Boolean keep_broken_games;236,8560
+    Boolean suppress_redundant_ep_info;238,8663
+    unsigned depth_of_positional_search;243,8875
+    unsigned long num_games_processed;244,8916
+    unsigned long num_games_matched;245,8955
+    unsigned games_per_file;247,9040
+    unsigned next_file_number;249,9110
+    unsigned lower_move_bound,251,9206
+    unsigned lower_move_bound, upper_move_bound;251,9206
+    int output_ply_limit;253,9319
+    unsigned long matching_game_number;255,9410
+    Boolean output_FEN_string;257,9515
+    Boolean add_FEN_comments;259,9603
+    Boolean add_position_match_comments;261,9689
+    Boolean output_total_plycount;263,9803
+    Boolean add_hashcode_tag;265,9879
+    const char *position_match_comment;position_match_comment267,9973
+    const char *current_input_file;current_input_file269,10048
+    SourceFileType current_file_type;271,10139
+    const char *eco_file;eco_file273,10206
+    FILE *outputfile;outputfile275,10278
+    const char *output_filename;output_filename277,10328
+    FILE *logfile;logfile279,10417
+    FILE *duplicate_file;duplicate_file281,10478
+    FILE *non_matching_file;non_matching_file283,10566
+} StateInfo;284,10595
+
+taglines.h,0
+
+mymalloc.h,0
+
+moves.h,0
+
+map.h,0
+
+lines.h,0
+
+grammar.h,0
+
+fenmatcher.h,0
+
+end.h,0
+
+decode.h,0
+
+apply.h,0
