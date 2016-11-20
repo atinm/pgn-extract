@@ -5,7 +5,7 @@ Version 17-21 by David J. Barnes (@kentdjb)
 Minor changes by Atin Malaviya (github.com/atinm) to add sm move to EPD format
 
 Introduction
-This is the home page for the pgn-extract program, which is a command-line program for manipulating chess games recorded in the Portable Game Notation (PGN).
+<a href="https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/">https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/</a> is the home page for the pgn-extract program, which is a command-line program for manipulating chess games recorded in the Portable Game Notation (PGN).
 
 A full description of pgn-extract's functionality is available and included with the sources.
 
