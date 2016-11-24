@@ -56,7 +56,7 @@ static char *output_line = NULL;
 static Boolean print_move(FILE *outputfile, unsigned move_number,
                           unsigned print_move_number, Boolean white_to_move,
                           const Move *move_details);
-static Boolean print_epd_move(FILE *outputfile, OutputFormat output_format, Boolean white_to_move,
+static Boolean print_epd_move(FILE *outputfile, OutputFormat output_format,
 			      const Move *move_details);
 static void output_STR(FILE *outfp,char **Tags);
 static void show_tags(FILE *outfp,char **Tags,int tags_length);
@@ -791,8 +791,7 @@ print_move(FILE *outputfile, unsigned move_number, unsigned print_move_number,
          * is to be printed after a variation.
          */
 static Boolean
-print_epd_move(FILE *outputfile, OutputFormat output_format,
-	       Boolean white_to_move, const Move *move_details)
+print_epd_move(FILE *outputfile, OutputFormat output_format, const Move *move_details)
 {   Boolean something_printed = FALSE;
 
     if(move_details == NULL){
@@ -1403,12 +1402,15 @@ print_epd_move_list(Game current_game,FILE *outputfile,
         else{
             fprintf(GlobalState.logfile,"Internal error: Missing EPD\n");
         }
-	print_epd_move(outputfile, LALG, white_to_move, move);
+	print_epd_move(outputfile, LALG, move);
+	fprintf(outputfile, " fmvn %d;", print_move_number);
 	if (GlobalState.keep_comments)
 	  fprintf(outputfile," %s",game_comment);
         putc('\n',outputfile);
+	white_to_move = !white_to_move;
+	if (white_to_move)
+	  print_move_number++;
         move = move->next;
-	print_move_number++;
     }
     if(final_board != NULL) {
         build_basic_EPD_string(final_board,epd);

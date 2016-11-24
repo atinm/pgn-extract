@@ -46,14 +46,22 @@ CC=clang
 AIX_CFLAGS=-c -D_POSIX_SOURCE -D_XOPEN_SOURCE -D_ALL_SOURCE
 AIX_CC=xlc
 
+all: pgn-extract db-extract
+
 pgn-extract : $(OBJS)
 	$(CC) $(DEBUGINFO) $(OBJS) -o pgn-extract
+
+db-extract: db-extract.o
+	$(CC) $(DEBUGINFO) db-extract.o -o db-extract
 
 purify : $(OBJS)
 	purify $(CC) $(DEBUGINFO) $(OBJS) -o pgn-extract
 
 clean:
 	rm -f core pgn-extract *.o
+
+db-extract.o : db-extract.c
+	$(CC) $(CFLAGS) db-extract.c
 
 mymalloc.o : mymalloc.c mymalloc.h
 	$(CC) $(CFLAGS) mymalloc.c
